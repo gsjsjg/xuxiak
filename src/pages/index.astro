@@ -15,7 +15,7 @@ const restaurantInfo = {
   // 社交平台外链与二维码配置
   socialLinks: [
     { name: "大众点评", url: "https://www.dianping.com/shop/G2pTkzDXI2q9iwlj", qrcode: "./images/qrcode-dianping.png", icon: "dianping" },
-    { name: "小红书", url: "https://www.xiaohongshu.com", qrcode: "./images/qrcode-xiaohongshu.png", icon: "xiaohongshu" },
+    { name: "小红书", url: "https://www.xiaohongshu.com/user/profile/65d56ebb000000000401eb5b?xhsshare=userQrCode", qrcode: "./images/qrcode-xiaohongshu.png", icon: "xiaohongshu" },
     { name: "抖音", url: "https://www.douyin.com", qrcode: "./images/qrcode-douyin.png", icon: "douyin" },
     { name: "微信公众号", url: "#", qrcode: "./images/qrcode-wechat.png", icon: "wechat" },
     { name: "视频号", url: "#", qrcode: "./images/qrcode-channels.png", icon: "channels" },
@@ -262,7 +262,7 @@ const dishes = [
             ))}
           </div>
           <p class="text-[10px] text-red-200/50 mt-2">
-            💡 提示：电脑端鼠标悬停图标可查看对应二维码；图片需放置于 <code class="bg-red-900 px-1 rounded">public/images/</code> 目录下（推荐尺寸：300x300像素）。
+            💡 提示：电脑端鼠标悬停图标可查看对应二维码；手机端可点击进入对应app页面。
           </p>
         </div>
       </div>
@@ -270,7 +270,7 @@ const dishes = [
 
     <!-- 底部版权 -->
     <footer class="bg-red-950 py-8 border-t border-red-900 text-center text-red-300/60 text-xs font-light px-4">
-      <p>© {new Date().getFullYear()} {restaurantInfo.name}. All rights reserved. 纯静态宣传主页</p>
+      <p>© {new Date().getFullYear()} {restaurantInfo.name}. All rights reserved. 纯静态宣传主页 by dearjoe</p>
     </footer>
 
   </body>
