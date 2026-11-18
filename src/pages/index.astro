@@ -5,12 +5,12 @@
 const restaurantInfo = {
   name: "徐虾客·快乐长沙菜",
   slogan: "坡子街老江湖，快乐长沙一口虾",
-  description: "长沙坡子街十五年地道湘菜与江湖菜老店。荣获大众点评2026当地人推荐榜。主打金牌虾尾、口味鸡、姜辣凤爪等特色湘味，烟火气十足，本地人深夜食堂。",
-  address: "长沙市天心区坡子街 7 号福临阁 1 楼（海信广场旁）",
+  description: "长沙坡子街十五年地道湘菜与江湖菜老店。荣获大众点评2026当地人推荐榜。主打金牌虾尾(夏季)、鲫鱼炖肉丸、剁椒鱼头等特色湘味，烟火气十足，本地人深夜食堂。",
+  address: "长沙市天心区坡子街 7 号福临阁 1 楼（海信广场北门对面）",
   areaServed: "长沙五一商圈、坡子街、解放西路",
   geoCoordinates: { latitude: 28.1921, longitude: 112.9735 },
   phone: "0731-84423222",
-  hours: "Mo-Su 11:00-02:00",
+  hours: "Mo-Su 11:00-23:00",
   priceRange: "¥50-¥60",
   // 社交平台外链与二维码配置
   socialLinks: [
@@ -37,7 +37,7 @@ const dishes = [
   },
   {
     name: "剁椒鱼头",
-    desc: "将鱼头的鲜味与剁椒的辣味结合。红色的剁椒覆盖在鱼头肉上，热气带有香气。成品色泽红亮，味道浓郁，肉质细腻，鲜辣口味",
+    desc: "鱼头的鲜味与剁椒的辣味结合。红色的剁椒覆盖在鱼头肉上，热气带有香气。成品色泽红亮，味道浓郁，肉质细腻，鲜辣口味",
     image: "./images/dish-2.jpg"
   },
   {
@@ -88,7 +88,7 @@ const dishes = [
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
         "opens": "11:00",
-        "closes": "02:00"
+        "closes": "23:00"
       },
       "areaServed": restaurantInfo.areaServed
     })} />
@@ -229,7 +229,7 @@ const dishes = [
           <h3 class="text-yellow-300 font-bold mb-2 flex items-center gap-1.5 text-sm sm:text-base">
             ⏰ 营业时间
           </h3>
-          <p class="text-red-100 text-xs sm:text-sm">周一至周日 11:00 - 次日 02:00（夜宵档营业）</p>
+          <p class="text-red-100 text-xs sm:text-sm">周一至周日 11:00 - 23:00 </p>
         </div>
         <div>
           <h3 class="text-yellow-300 font-bold mb-2 flex items-center gap-1.5 text-sm sm:text-base">
