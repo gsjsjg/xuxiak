@@ -5,21 +5,21 @@
 const restaurantInfo = {
   name: "徐虾客·快乐长沙菜",
   slogan: "坡子街老江湖，快乐长沙一口虾",
-  description: "长沙坡子街十五年地道湘菜与江湖菜老店。荣获大众点评2026当地人推荐榜。主打金牌虾尾(夏季)、鲫鱼炖肉丸、剁椒鱼头等特色湘味，烟火气十足。创始人徐少华 1990 年代在岳阳以虾尾起家，2007 年与妻子一起来长沙，从坡子街一个不到 10 平方米的小排档做起，2011 年正式落店。它把岳阳的虾尾手艺带进长沙夜宵江湖：2012 年《潇湘晨报》以「老徐的虾尾店」为题专文报道，记录其满座 30 桌、等位 31 桌、日均卖虾约 600 斤（旺季逾 1000 斤）的火爆场面；2013 年又被华声在线列入坡子街「长沙名片」名单，与火宫殿、新华楼、杨裕兴等老字号并列，并进驻长沙哈啤音乐节美食区。三十年间，它以口味虾、虾尾为看家本领，以武侠江湖的门店氛围和人均约 50 元的亲民定位，沉淀了一批「长沙老口子」老客。",
-  address: "长沙市天心区坡子街 7 号福临阁 1 楼（海信广场北门对面）",
+  description: "长沙坡子街十五年地道湘菜与江湖菜老店。荣获大众点评2026当地人推荐榜。主打金牌虾尾(夏季)、鲫鱼炖肉丸、剁椒鱼头等特色湘味，烟火气十足。创始人徐少华 1990 年代在岳阳以虾尾起家，2007年初到长沙，2011 年正式落店。把岳阳的虾尾手艺带进长沙夜宵江湖：2012 年《潇湘晨报》以「老徐的虾尾店」为题专文报道，记录其满座火爆场面；2013 年又被华声在线列入坡子街「长沙名片」名单，与火宫殿、新华楼、杨裕兴等老字号并列，并进驻长沙哈啤音乐节美食区。三十年间，它以口味虾、虾尾和特色湘菜为看家本领，以武侠江湖的门店氛围和人均约 4~50 元的亲民定位，沉淀了一批「长沙老口子」食客。",
+  address: "长沙市天心区坡子街 7号福临阁 1楼(海信广场北门对面)",
   areaServed: "长沙五一商圈、坡子街、解放西路",
   geoCoordinates: { latitude: 28.1921, longitude: 112.9735 },
   phone: "0731-84423222",
   hours: "Mo-Su 11:00-23:00",
-  priceRange: "¥50-¥60",
+  priceRange: "¥40-¥50",
   // 社交平台外链与二维码配置
   socialLinks: [
     { name: "大众点评", url: "https://www.dianping.com/shop/G2pTkzDXI2q9iwlj", qrcode: "./images/qrcode-dianping.png", icon: "dianping" },
     { name: "小红书", url: "https://www.xiaohongshu.com/user/profile/65d56ebb000000000401eb5b?xhsshare=userQrCode", qrcode: "./images/qrcode-xiaohongshu.png", icon: "xiaohongshu" },
     { name: "抖音", url: "https://www.douyin.com", qrcode: "./images/qrcode-douyin.png", icon: "douyin" },
     { name: "微信公众号", url: "#", qrcode: "./images/qrcode-wechat.png", icon: "wechat" },
-    { name: "视频号", url: "#", qrcode: "./images/qrcode-channels.png", icon: "channels" },
-    { name: "微博", url: "https://weibo.com", qrcode: "./images/qrcode-weibo.png", icon: "weibo" }
+    { name: "视频号", url: "https://weixin.qq.com/sph/Ad5CBQ1XIy", qrcode: "./images/qrcode-channels.png", icon: "channels" },
+    { name: "微博", url: "https://weibo.com/yueyangxiawei", qrcode: "./images/qrcode-weibo.png", icon: "weibo" }
   ],
   takeoutUrl: "https://waimai.baidu.com",
   // 地图直接导航链接（基于高德和百度地图 URI 规范）
@@ -80,7 +80,7 @@ const dishes = [
         "latitude": restaurantInfo.geoCoordinates.latitude,
         "longitude": restaurantInfo.geoCoordinates.longitude
       },
-      "url": "https://www.xuxiaking.cn",
+      "url": "https://gsjsjg.github.io/xuxiak",
       "telephone": restaurantInfo.phone,
       "servesCuisine": ["湘菜", "江湖菜", "长沙口味虾"],
       "priceRange": restaurantInfo.priceRange,
