@@ -57,7 +57,7 @@ const dishes = [
     <meta name="keywords" content="长沙徐虾客,坡子街美食,长沙口味虾,长沙湘菜馆,大众点评当地人推荐榜,长沙江湖菜" />
     <!-- Favicon 与移动端主屏幕图标声明 -->
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
-    <link rel="apple-touch-icon" href="./favicon.svg" />
+    <link rel="apple-touch-icon" sizes="200x200" href="./apple-touch-icon.png" />
     <meta name="theme-color" content="#450a0a" />
 
     <!-- 规范链接 (Canonical) -->
@@ -269,8 +269,12 @@ const dishes = [
           <div class="flex flex-wrap gap-3 items-center mt-2">
             {restaurantInfo.socialLinks.map((item) => (
               <div class="relative group">
-                <a href={item.url} target="_blank" rel="noopener noreferrer" 
-                   class="flex items-center gap-1.5 text-xs bg-red-800/80 hover:bg-yellow-400 hover:text-red-950 text-red-100 font-medium px-3.5 py-2 rounded-full transition border border-yellow-400/30 shadow">
+                <a 
+                    href={item.url === "#" ? "javascript:void(0)" : item.url} 
+                    target={item.url === "#" ? undefined : "_blank"} 
+                    rel={item.url === "#" ? undefined : "noopener noreferrer"}
+                    class="flex items-center gap-1.5 text-xs bg-red-800/80 hover:bg-yellow-400 hover:text-red-950 text-red-100 font-medium px-3.5 py-2 rounded-full transition border border-yellow-400/30 shadow"
+                >
                   
                   {/* 1. 大众点评专属图标 (口碑星级/美食点评) */}
                   {item.icon === "dianping" && (
