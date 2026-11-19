@@ -62,6 +62,23 @@ const dishes = [
     <meta name="geo.position" content={`${restaurantInfo.geoCoordinates.latitude};${restaurantInfo.geoCoordinates.longitude}`} />
     <meta name="ICBM" content={`${restaurantInfo.geoCoordinates.latitude}, ${restaurantInfo.geoCoordinates.longitude}`} />
 
+    <!-- Open Graph (微信 / 微博 / Facebook 分享卡片) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="徐虾客·快乐长沙菜" />
+    <meta property="og:title" content="徐虾客·快乐长沙菜 - 长沙坡子街十五年地道湘菜老店" />
+    <meta property="og:description" content="大众点评2026当地人推荐榜上榜商户。坡子街老江湖，快乐长沙一口虾，主打金牌虾尾(夏季)、鲫鱼炖肉丸、剁椒鱼头等特色湘味。" />
+    <meta property="og:url" content="https://gsjsjg.github.io/xuxiak/" />
+    <meta property="og:image" content="https://gsjsjg.github.io/xuxiak/images/hero-bg.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter / X Card 摘要卡片 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="徐虾客·快乐长沙菜 - 长沙坡子街十五年地道湘菜老店" />
+    <meta name="twitter:description" content="大众点评2026当地人推荐榜上榜商户。坡子街老江湖，快乐长沙一口虾。" />
+    <meta name="twitter:image" content="https://gsjsjg.github.io/xuxiak/images/hero-bg.jpg" />
+
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Restaurant",
