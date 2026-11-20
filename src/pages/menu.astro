@@ -1,0 +1,416 @@
+---
+// ==========================================
+// 徐蝦客·快乐长沙菜（坡子街店）2026 最新菜单
+// 自动适配 GitHub Pages 子路径 (/xuxiak) 与根目录部署
+// ==========================================
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const siteUrl = "https://gsjsjg.github.io/xuxiak";
+
+// 招牌必点（含 PDF 原版 10 张实拍菜品图）
+const mustOrderDishes = [
+  { name: "红烧大甲鱼", price: "198元/份", image: `${base}/images/menu/01-hongshao-dajiayu.jpg` },
+  { name: "干锅腊土鸡", price: "88元/份", image: `${base}/images/menu/02-ganguo-latuji.jpg` },
+  { name: "鱼籽鱼泡", price: "128元/份", image: `${base}/images/menu/03-yuzi-yupao.jpg` },
+  { name: "永州血鸭", price: "78元/份", image: `${base}/images/menu/04-yongzhou-xueya.jpg` },
+  { name: "剁椒鱼头", price: "78元/半个 128元/个", image: `${base}/images/menu/05-duojiao-yutou.jpg` },
+  { name: "鲫鱼炖肉丸", price: "88元/份", image: `${base}/images/menu/06-jiyu-dunrouwan.jpg` },
+  { name: "姜辣凤爪", price: "88元/份", image: `${base}/images/menu/07-jiangla-fengzhua.jpg` },
+  { name: "跳跳蛙", price: "98元/份", image: `${base}/images/menu/08-tiaotiaowa.jpg` },
+  { name: "毛氏红烧肉", price: "58元/份", image: `${base}/images/menu/09-maoshi-hongshaorou.jpg` },
+  { name: "热卤四合一", price: "58元/份", image: `${base}/images/menu/10-relu-siheyi.jpg` },
+];
+
+// 老少咸宜不辣（12道）
+const nonSpicyDishes = [
+  { name: "香芋蒸排骨", price: "48元/份" },
+  { name: "糖醋酥肉", price: "39元/份" },
+  { name: "虾仁蒸蛋", price: "39元/份" },
+  { name: "糯米肉丸", price: "28元/份" },
+  { name: "大碗花菜", price: "28元/份" },
+  { name: "西红柿炒蛋", price: "28元/份" },
+  { name: "清炒丝瓜", price: "28元/份" },
+  { name: "干煸四季豆", price: "28元/份" },
+  { name: "紫苏煎黄瓜", price: "28元/份" },
+  { name: "酱油土豆丝", price: "26元/份" },
+  { name: "手撕包菜", price: "22元/份" },
+  { name: "时令蔬菜", price: "22元/份" },
+];
+
+// 招牌特色（9道）
+const signatureSpecials = [
+  { name: "清蒸大闸蟹（2只起点）", price: "28/只" },
+  { name: "香蒜腊牛肉", price: "78元/份" },
+  { name: "干锅黄鸭叫", price: "78元/份" },
+  { name: "干锅酸菜肥肠", price: "78元/份" },
+  { name: "金牌虾尾", price: "149元/份" },
+  { name: "口味小龙虾", price: "149元/份" },
+  { name: "蒜蓉小龙虾", price: "149元/份" },
+  { name: "香辣大闸蟹", price: "178元/份" },
+  { name: "蒜蓉大闸蟹", price: "178元/份" },
+];
+
+// 例汤（3道）
+const soups = [
+  { name: "筒子骨炖萝卜汤", price: "48元/份" },
+  { name: "丝瓜肉沫汤", price: "28元/份" },
+  { name: "娃娃菜芋头汤", price: "28元/份" },
+];
+
+// 湖湘特色菜（20道）
+const hunanDishes = [
+  { name: "辣椒炒肉", price: "48/份" },
+  { name: "紫苏炒牛蛙", price: "48/份" },
+  { name: "铁板鱿鱼", price: "59/份" },
+  { name: "蒜香鲫鱼", price: "48/份" },
+  { name: "口味鸡", price: "48/份" },
+  { name: "蒜香排骨", price: "48/份" },
+  { name: "小炒黄牛肉", price: "58/份" },
+  { name: "腰肝合炒", price: "48/份" },
+  { name: "香干回锅肉", price: "48/份" },
+  { name: "醋炒蛋", price: "39/份" },
+  { name: "肉沫茄子", price: "36/份" },
+  { name: "萝卜干炒腊肉", price: "48/份" },
+  { name: "青椒油渣", price: "22/份" },
+  { name: "麻婆豆腐", price: "28/份" },
+  { name: "擂辣椒皮蛋", price: "32/份" },
+  { name: "酸包菜粉皮", price: "32/份" },
+  { name: "孜然牛肉", price: "58/份" },
+  { name: "蒜香小猪蹄", price: "58/份" },
+  { name: "青椒碎碎鸭", price: "58/份" },
+  { name: "酸萝卜炒牛肚", price: "48/份" },
+];
+
+// 小吃主食（8道）
+const snacksAndStaples = [
+  { name: "酸菜蛋炒饭", price: "15元/份" },
+  { name: "老面馒头", price: "10元/份" },
+  { name: "灵魂拌面", price: "15元/份" },
+  { name: "清水面", price: "12元/份" },
+  { name: "冰豆花", price: "10元/份" },
+  { name: "花生米", price: "12元/份" },
+  { name: "臭豆腐", price: "12元/份" },
+  { name: "五常大米饭", price: "2元/份" },
+];
+---
+
+<html lang="zh-CN" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#450a0a" />
+
+    <!-- 基础 SEO 标签 -->
+    <title>最新菜单 - 徐蝦客·快乐长沙菜（坡子街店）</title>
+    <meta
+      name="description"
+      content="徐蝦客·快乐长沙菜（坡子街店）2026最新完整菜单：涵盖招牌必点、老少咸宜不辣、湖湘特色菜、招牌特色、例汤及小吃主食共62道菜品与明码标价。"
+    />
+    <meta
+      name="keywords"
+      content="徐虾客菜单,徐蝦客快乐长沙菜价格,坡子街湘菜菜单,长沙口味虾价格,剁椒鱼头,鲫鱼炖肉丸"
+    />
+
+    <!-- 规范链接与图标 -->
+    <link rel="canonical" href={`${siteUrl}/menu/`} />
+    <link rel="icon" type="image/svg+xml" href={`${base}/favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${base}/apple-touch-icon.png`} />
+
+    <!-- Open Graph / Twitter Card -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="徐蝦客·快乐长沙菜" />
+    <meta property="og:title" content="最新菜单 - 徐蝦客·快乐长沙菜（坡子街店）" />
+    <meta
+      property="og:description"
+      content="查看坡子街店62道完整菜单与实拍图：红烧大甲鱼、剁椒鱼头、鲫鱼炖肉丸、姜辣凤爪、金牌虾尾等。"
+    />
+    <meta property="og:url" content={`${siteUrl}/menu/`} />
+    <meta property="og:image" content={`${siteUrl}/images/menu/05-duojiao-yutou.jpg`} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="最新菜单 - 徐蝦客·快乐长沙菜（坡子街店）" />
+    <meta name="twitter:image" content={`${siteUrl}/images/menu/05-duojiao-yutou.jpg`} />
+  </head>
+
+  <body class="bg-red-950 text-white font-sans antialiased selection:bg-yellow-400 selection:text-red-950 overflow-x-hidden">
+    <!-- 顶部固定导航栏 -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-red-950/95 backdrop-blur-md border-b border-red-900/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
+        <a href={`${base}/`} class="flex items-center gap-2 text-yellow-400 font-bold text-sm sm:text-lg tracking-wider shrink-0">
+          <span class="w-2.5 h-2.5 bg-red-600 rounded-full inline-block" aria-hidden="true"></span>
+          <span>徐蝦客·最新菜单</span>
+        </a>
+
+        <!-- PC端分类快捷跳转 -->
+        <div class="hidden lg:flex items-center space-x-5 text-xs font-medium text-red-100">
+          <a href="#must-order" class="hover:text-yellow-400 transition">招牌必点</a>
+          <a href="#non-spicy" class="hover:text-yellow-400 transition">老少咸宜不辣</a>
+          <a href="#signature" class="hover:text-yellow-400 transition">招牌特色</a>
+          <a href="#soups" class="hover:text-yellow-400 transition">例汤</a>
+          <a href="#hunan" class="hover:text-yellow-400 transition">湖湘特色菜</a>
+          <a href="#snacks" class="hover:text-yellow-400 transition">小吃主食</a>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <a
+            href="tel:0731-84423222"
+            class="bg-red-800 hover:bg-red-700 text-yellow-300 border border-yellow-400/30 px-3 py-1.5 rounded-full text-xs font-bold transition"
+          >
+            📞 拨号
+          </a>
+          <a
+            href={`${base}/`}
+            class="bg-yellow-400 hover:bg-yellow-300 text-red-950 px-3.5 py-1.5 rounded-full text-xs font-bold transition shadow"
+          >
+            ← 返回主页
+          </a>
+        </div>
+      </div>
+
+      <!-- 手机/平板端横向滑动分类导航条 -->
+      <div class="lg:hidden border-t border-red-900/60 bg-red-950/90 overflow-x-auto">
+        <div class="flex items-center gap-4 px-4 py-2 text-xs font-medium text-red-100 whitespace-nowrap">
+          <a href="#must-order" class="hover:text-yellow-400">招牌必点</a>
+          <a href="#non-spicy" class="hover:text-yellow-400">老少咸宜不辣</a>
+          <a href="#signature" class="hover:text-yellow-400">招牌特色</a>
+          <a href="#soups" class="hover:text-yellow-400">例汤</a>
+          <a href="#hunan" class="hover:text-yellow-400">湖湘特色菜</a>
+          <a href="#snacks" class="hover:text-yellow-400">小吃主食</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 页面主容器 -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-28 lg:pt-24 pb-16 space-y-12">
+      <!-- 顶部菜单抬头与门店温馨提示（完整保留 PDF 抬头文字） -->
+      <header class="bg-gradient-to-br from-red-900/80 via-red-900/50 to-red-950 border-2 border-yellow-400/40 rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <div class="flex flex-wrap items-baseline gap-2.5 mb-2">
+              <h1 class="text-3xl sm:text-4xl font-black text-yellow-400 tracking-wider">徐蝦客</h1>
+              <span class="text-xs sm:text-sm font-bold tracking-[0.2em] text-yellow-200/80 uppercase">XUXIAKING</span>
+              <span class="bg-red-600 text-yellow-300 text-xs font-bold px-2.5 py-0.5 rounded-full border border-yellow-400/30">
+                坡子街店
+              </span>
+            </div>
+            <p class="text-lg sm:text-xl font-extrabold text-white tracking-wide">快乐长沙菜</p>
+          </div>
+
+          <!-- 右侧门店须知与点单信息栏 -->
+          <div class="bg-red-950/70 border border-red-800/80 rounded-xl p-4 text-xs sm:text-sm text-red-100 space-y-2 md:min-w-[340px]">
+            <p class="text-yellow-300 font-semibold">温馨提示：（敬启：出品以实物为准）</p>
+            <p class="flex flex-wrap gap-x-4 gap-y-1">
+              <span>wifi：<strong class="text-white">xuxiake</strong></span>
+              <span>密码：<strong class="text-white">84423222</strong></span>
+            </p>
+            <div class="flex flex-wrap gap-x-4 gap-y-1 pt-1 border-t border-red-900/80 text-red-200/90">
+              <span>台号：<span class="inline-block w-10 border-b border-red-400/50"></span></span>
+              <span>人数：<span class="inline-block w-10 border-b border-red-400/50"></span></span>
+              <span>打包盒：<span class="inline-block w-10 border-b border-red-400/50"></span></span>
+            </div>
+            <p class="text-yellow-200/90 pt-0.5">若您介意上菜的顺序，请提前告知工作人员</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- 一、招牌必点（10 道实拍图菜品，5×2 整齐网格） -->
+      <section id="must-order" class="scroll-mt-28">
+        <div class="flex items-center justify-between border-b-2 border-yellow-400/50 pb-3 mb-6">
+          <div class="flex items-center gap-3">
+            <span class="w-1.5 h-7 bg-yellow-400 rounded-full"></span>
+            <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">招牌必点</h2>
+          </div>
+          <span class="text-xs text-yellow-300/90 bg-red-900/70 px-3 py-1 rounded-full border border-yellow-400/20">
+            实拍推荐 · 点击可勾选心仪菜品
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-5">
+          {mustOrderDishes.map((dish) => (
+            <label class="group cursor-pointer bg-red-900/45 border border-red-800/90 hover:border-yellow-400/70 has-[:checked]:border-yellow-400 has-[:checked]:bg-red-900/80 rounded-xl overflow-hidden shadow-lg transition flex flex-col">
+              <div class="aspect-[3/2] w-full overflow-hidden bg-red-950 relative">
+                <img
+                  src={dish.image}
+                  alt={dish.name}
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                />
+              </div>
+              <div class="p-3.5 flex-1 flex flex-col justify-between gap-2">
+                <div class="flex items-start gap-2">
+                  <input
+                    type="checkbox"
+                    class="mt-1 w-4 h-4 accent-yellow-400 rounded shrink-0 cursor-pointer"
+                  />
+                  <h3 class="text-sm sm:text-base font-bold text-white leading-snug group-hover:text-yellow-300 transition">
+                    {dish.name}
+                  </h3>
+                </div>
+                <p class="text-right text-sm font-extrabold text-yellow-400 tracking-tight">
+                  {dish.price}
+                </p>
+              </div>
+            </label>
+          ))}
+        </div>
+      </section>
+
+      <!-- 二、老少咸宜不辣（12道） + 招牌特色（9道）& 例汤（3道）等高双栏对齐 -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-start">
+        <!-- 左栏：老少咸宜不辣 -->
+        <section
+          id="non-spicy"
+          class="scroll-mt-28 bg-red-900/35 border border-red-800/80 rounded-2xl p-5 sm:p-7 shadow-xl"
+        >
+          <div class="flex items-center justify-between border-b border-yellow-400/40 pb-3 mb-4">
+            <h2 class="text-xl sm:text-2xl font-black text-yellow-400 tracking-wide">老少咸宜不辣</h2>
+            <span class="text-xs text-red-200/70">12 道</span>
+          </div>
+          <ul class="divide-y divide-red-800/60">
+            {nonSpicyDishes.map((dish) => (
+              <li>
+                <label class="flex items-center justify-between gap-3 py-2.5 px-2 -mx-2 rounded-lg cursor-pointer hover:bg-red-800/40 has-[:checked]:bg-red-800/60 transition">
+                  <span class="flex items-center gap-2.5 text-sm sm:text-base text-white font-medium">
+                    <input type="checkbox" class="w-4 h-4 accent-yellow-400 rounded shrink-0 cursor-pointer" />
+                    <span>{dish.name}</span>
+                  </span>
+                  <span class="text-sm sm:text-base font-bold text-yellow-300 whitespace-nowrap tabular-nums">
+                    {dish.price}
+                  </span>
+                </label>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- 右栏：招牌特色 + 例汤 -->
+        <div class="space-y-6 sm:space-y-8">
+          <section
+            id="signature"
+            class="scroll-mt-28 bg-red-900/35 border border-red-800/80 rounded-2xl p-5 sm:p-7 shadow-xl"
+          >
+            <div class="flex items-center justify-between border-b border-yellow-400/40 pb-3 mb-4">
+              <h2 class="text-xl sm:text-2xl font-black text-yellow-400 tracking-wide">招牌特色</h2>
+              <span class="text-xs text-red-200/70">9 道</span>
+            </div>
+            <ul class="divide-y divide-red-800/60">
+              {signatureSpecials.map((dish) => (
+                <li>
+                  <label class="flex items-center justify-between gap-3 py-2.5 px-2 -mx-2 rounded-lg cursor-pointer hover:bg-red-800/40 has-[:checked]:bg-red-800/60 transition">
+                    <span class="flex items-center gap-2.5 text-sm sm:text-base text-white font-medium">
+                      <input type="checkbox" class="w-4 h-4 accent-yellow-400 rounded shrink-0 cursor-pointer" />
+                      <span>{dish.name}</span>
+                    </span>
+                    <span class="text-sm sm:text-base font-bold text-yellow-300 whitespace-nowrap tabular-nums">
+                      {dish.price}
+                    </span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section
+            id="soups"
+            class="scroll-mt-28 bg-red-900/35 border border-red-800/80 rounded-2xl p-5 sm:p-7 shadow-xl"
+          >
+            <div class="flex items-center justify-between border-b border-yellow-400/40 pb-3 mb-4">
+              <h2 class="text-xl sm:text-2xl font-black text-yellow-400 tracking-wide">例 汤</h2>
+              <span class="text-xs text-red-200/70">3 道</span>
+            </div>
+            <ul class="divide-y divide-red-800/60">
+              {soups.map((dish) => (
+                <li>
+                  <label class="flex items-center justify-between gap-3 py-2.5 px-2 -mx-2 rounded-lg cursor-pointer hover:bg-red-800/40 has-[:checked]:bg-red-800/60 transition">
+                    <span class="flex items-center gap-2.5 text-sm sm:text-base text-white font-medium">
+                      <input type="checkbox" class="w-4 h-4 accent-yellow-400 rounded shrink-0 cursor-pointer" />
+                      <span>{dish.name}</span>
+                    </span>
+                    <span class="text-sm sm:text-base font-bold text-yellow-300 whitespace-nowrap tabular-nums">
+                      {dish.price}
+                    </span>
+                  </label>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </div>
+      </div>
+
+      <!-- 三、湖湘特色菜（20道，桌面端 10×2 对齐排布） -->
+      <section
+        id="hunan"
+        class="scroll-mt-28 bg-red-900/35 border border-red-800/80 rounded-2xl p-5 sm:p-7 shadow-xl"
+      >
+        <div class="flex items-center justify-between border-b border-yellow-400/40 pb-3 mb-4">
+          <h2 class="text-xl sm:text-2xl font-black text-yellow-400 tracking-wide">湖湘特色菜</h2>
+          <span class="text-xs text-red-200/70">20 道</span>
+        </div>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-10 divide-y divide-red-800/60 md:divide-y-0">
+          {hunanDishes.map((dish) => (
+            <li class="md:border-b md:border-red-800/60">
+              <label class="flex items-center justify-between gap-3 py-2.5 px-2 -mx-2 rounded-lg cursor-pointer hover:bg-red-800/40 has-[:checked]:bg-red-800/60 transition">
+                <span class="flex items-center gap-2.5 text-sm sm:text-base text-white font-medium">
+                  <input type="checkbox" class="w-4 h-4 accent-yellow-400 rounded shrink-0 cursor-pointer" />
+                  <span>{dish.name}</span>
+                </span>
+                <span class="text-sm sm:text-base font-bold text-yellow-300 whitespace-nowrap tabular-nums">
+                  {dish.price}
+                </span>
+              </label>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- 四、小吃主食（8道，桌面端 4×2 对齐网格） -->
+      <section
+        id="snacks"
+        class="scroll-mt-28 bg-red-900/35 border border-red-800/80 rounded-2xl p-5 sm:p-7 shadow-xl"
+      >
+        <div class="flex items-center justify-between border-b border-yellow-400/40 pb-3 mb-5">
+          <h2 class="text-xl sm:text-2xl font-black text-yellow-400 tracking-wide">小吃主食</h2>
+          <span class="text-xs text-red-200/70">8 道</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {snacksAndStaples.map((dish) => (
+            <label class="flex items-center justify-between gap-2 bg-red-950/60 border border-red-800/70 hover:border-yellow-400/60 has-[:checked]:border-yellow-400 has-[:checked]:bg-red-900/70 rounded-xl px-4 py-3 cursor-pointer transition">
+              <span class="flex items-center gap-2 text-sm sm:text-base text-white font-medium">
+                <input type="checkbox" class="w-4 h-4 accent-yellow-400 rounded shrink-0 cursor-pointer" />
+                <span>{dish.name}</span>
+              </span>
+              <span class="text-sm font-bold text-yellow-300 whitespace-nowrap tabular-nums">
+                {dish.price}
+              </span>
+            </label>
+          ))}
+        </div>
+      </section>
+
+      <!-- 底部行动号召栏 -->
+      <div class="bg-red-900/40 border border-yellow-400/30 rounded-2xl p-6 text-center space-y-4">
+        <p class="text-sm sm:text-base text-yellow-200 font-medium">
+          坡子街店地址：长沙市天心区坡子街 7 号福临阁 1 楼（海信广场北门对面）
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a
+            href={`${base}/`}
+            class="bg-yellow-400 hover:bg-yellow-300 text-red-950 font-bold px-6 py-2.5 rounded-full text-sm transition shadow"
+          >
+            ← 返回官网主页
+          </a>
+          <a
+            href="tel:0731-84423222"
+            class="border border-yellow-400/60 hover:bg-yellow-400/10 text-yellow-300 font-semibold px-6 py-2.5 rounded-full text-sm transition"
+          >
+            📞 订座热线：0731-84423222
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-red-950 py-8 border-t border-red-900 text-center text-red-300/60 text-xs font-light px-4">
+      <p>© {new Date().getFullYear()} 徐蝦客·快乐长沙菜（坡子街店）. 温馨提示：出品以实物为准。</p>
+    </footer>
+  </body>
+</html>
